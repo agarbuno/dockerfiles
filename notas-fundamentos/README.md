@@ -45,10 +45,13 @@ de cambiar en las líneas de arriba: *<escribeunacontraseña>*. El usuario es, p
 Una vez en la pantalla de `Rstudio` puedes empezar con cargar las notas como un
 proyecto.
 
-## Genera la imagen con tu fork
+## Genera la imagen con tu fork 
+
+**Nota.** Instrucciones incompletas. Falta resolver problemas de autentificación de Github.
 
 Las instrucciones son similares, pero tendrás que modificar el `Dockerfile` para que apunte al 
 repositorio de `Github` correspondiente. Esto lo lograrás cambiando la variable de ambiente 
 ```{bash}
 ENV GITHUB_HOST tu_usuario
 ```
+
