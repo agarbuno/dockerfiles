@@ -26,7 +26,7 @@ se descarga el repositorio de las notas y también todas las librerías de `R` q
 
 Unas vez generada la imagen en tu computadora puedes iniciarla con 
 ```{bash}
-docker run -d -p 8787:8787 -e PASSWORD=<escribeunacontraseña> -m 4g agarbuno/notas-fundamentos
+docker run -d -p 8787:8787 -e PASSWORD=<escribeunacontraseña> -m 4g notas-fundamentos
 ```
 En general se necesita correr la imagen con 4Gb de memoria (`-m 4g`).  La opción
 `-d` es opcional, y sirve para dejar corriendo el contenedor en el *background*
