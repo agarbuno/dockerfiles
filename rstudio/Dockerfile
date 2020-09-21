@@ -14,7 +14,9 @@ RUN apt update \
 
 USER $RSTUDIO_USER
 
-# VOLUME [ "/home/rstudio/notas-fundamentos" ]
+VOLUME [ "/home/rstudio/notas-fundamentos" ]
+
+RUN chown -R rstudio:rstudio /home/$RSTUDIO_USER/notas-fundamentos/
 
 RUN R -e "install.packages('renv', repos = 'http://cran.us.r-project.org', type = 'source')" \
     # && R -e "install.packages('rmarkdown', repos = 'http://cran.us.r-project.org', type = 'source')" \
@@ -25,8 +27,7 @@ RUN R -e "install.packages('renv', repos = 'http://cran.us.r-project.org', type 
     # && git checkout 'dev' \
     && git pull \
     # && apt update \
-    && R -e "renv::restore(project = '/home/rstudio/notas-fundamentos/')" \
-    && chown -R rstudio:rstudio /home/$RSTUDIO_USER/notas-fundamentos/
+    && R -e "renv::restore(project = '/home/rstudio/notas-fundamentos/')" 
 
 # TODO: Add volume for development ~/.local/share/renv
 
