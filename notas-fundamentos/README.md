@@ -47,7 +47,7 @@ proyecto.
 
 ## Genera la imagen con tu fork 
 
-**Nota.** Instrucciones incompletas. Falta resolver problemas de autentificación de Github.
+### **Nota.** Instrucciones incompletas. Falta resolver problemas de autentificación de Github y de vulnerabilidad de credenciales.
 
 Las instrucciones son similares, pero tendrás que modificar el `Dockerfile` para que apunte al 
 repositorio de `Github` correspondiente. Esto lo lograrás cambiando la variable de ambiente 
