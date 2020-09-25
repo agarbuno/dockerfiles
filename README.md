@@ -1,7 +1,5 @@
 # Dockerfiles 
-Dockerfiles para generar contenedores para cursos de la Maestría en Ciencia de Datos.   
-
-Aqui encontrarán los archivos de configuración de un contenedor para los cursos:  
+Dockerfiles para generar contenedores para los cursos que imparto.
 
 - Fundamentos Estadísticos con Remuestreo: 
 
