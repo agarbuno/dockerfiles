@@ -1,6 +1,7 @@
 # Dockerfiles 
-Dockerfiles para generar contenedores para cursos de la Maestría en Ciencia de Datos.   
+Dockerfiles para generar contenedores para los cursos que imparto.
 
-Aqui encontrarán los archivos de configuración de un contenedor para las notas de:  
+- Fundamentos Estadísticos con Remuestreo: 
 
-- Fundamentos Estadísticos con Remuestreo [`notas-fundamentos`](https://github.com/agarbuno/dockerfiles/tree/master/notas-fundamentos)
+  - Notas del curso: [`notas-fundamentos`](https://github.com/agarbuno/dockerfiles/tree/master/notas-fundamentos)
+  - Ambiente de trabajo: [`env-fundamentos`](https://github.com/agarbuno/dockerfiles/tree/master/env-fundamentos)
