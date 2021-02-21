@@ -71,6 +71,12 @@ RUN mkdir /home/$RSTUDIO_USER/$TARGET_DIR \
 VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 
 RUN chmod -R 775 /home/$RSTUDIO_USER/$TARGET_DIR \
-    && chmod -R g+s /home/$RSTUDIO_USER/$TARGET_DIR
+    && chmod -R g+s /home/$RSTUDIO_USER/$TARGET_DIR \
+    && mkdir -p /home/$RSTUDIO_USER/.local/share/renv/ \
+    && mkdir -p /home/$RSTUDIO_USER/.local/share/renv/source \
+    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/source \
+    && chmod -R 775 /home/$RSTUDIO_USER/.local/share/renv/source \
+    && touch /home/$RSTUDIO_USER/.local/share/renv/projects \
+    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/projects 
 
 CMD ["/init"]
