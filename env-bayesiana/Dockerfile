@@ -64,6 +64,17 @@ RUN echo "Installing cmdstan" \
     && cd .cmdstan \
     && make build
 
+# Global site-wide config -- neeeded for building packages
+RUN mkdir -p $HOME/.R/ \
+    && echo "CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function -flto -ffat-lto-objects  -Wno-unused-local-typedefs \n" >> $HOME/.R/Makevars
+
+# Config for rstudio user
+USER rstudio
+RUN mkdir -p /home/rstudio/.R
+RUN touch /home/rstudio/.R/Makevars
+RUN r -e 'cat("\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC", "CXX14=g++", file = "/home/rstudio/.R/Makevars", sep = "\n", append = TRUE)'
+USER root
+
 # Clonamos e inicializamos el ambiente
 RUN mkdir /home/$RSTUDIO_USER/$TARGET_DIR \
     && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/
@@ -77,6 +88,6 @@ RUN chmod -R 775 /home/$RSTUDIO_USER/$TARGET_DIR \
     && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/source \
     && chmod -R 775 /home/$RSTUDIO_USER/.local/share/renv/source \
     && touch /home/$RSTUDIO_USER/.local/share/renv/projects \
-    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/projects 
+    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/projects
 
 CMD ["/init"]
