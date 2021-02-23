@@ -71,6 +71,7 @@ RUN mkdir -p $HOME/.R/ \
 # Config for rstudio user
 USER rstudio
 RUN mkdir -p /home/rstudio/.R
+RUN mkdir -p /home/rstudio/.local/share/rstudio
 RUN touch /home/rstudio/.R/Makevars
 RUN r -e 'cat("\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC", "CXX14=g++", file = "/home/rstudio/.R/Makevars", sep = "\n", append = TRUE)'
 USER root
