@@ -16,9 +16,31 @@ RUN apt-get update \
     && apt-get install -y libmagick++-dev htop
 
 RUN apt-get install -y --no-install-recommends \
-        texlive-base \
-        texlive-full \
-        texlive-bibtex-extra
+            ghostscript \
+            lmodern \
+            pandoc-citeproc \
+            qpdf \
+            r-cran-formatr \
+            r-cran-ggplot2 \
+            r-cran-knitr \
+            r-cran-rmarkdown \
+            r-cran-runit \
+            r-cran-testthat \
+            texinfo \
+            texlive-fonts-extra \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            texlive-latex-recommended \
+            texlive-luatex \
+            texlive-plain-generic \
+            texlive-science \
+            texlive-xetex
+
+RUN mkdir ~/.R \
+    && install2.r binb linl pinp tint \
+    && echo _R_CHECK_FORCE_SUGGESTS_=FALSE > ~/.R/check.Renviron \
+    && cd /usr/local/bin \
+    && ln -s /usr/lib/R/site-library/littler/examples/render.r .
 
 RUN tlmgr update --self &&\
     tlmgr init-usertree &&\
