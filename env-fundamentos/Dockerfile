@@ -3,7 +3,7 @@ MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@gmail.com"
 
 # Declaramos al usuario, y las
 ENV RSTUDIO_USER rstudio
-ENV TARGET_DIR cursos
+ENV TARGET_DIR documentos
 
 RUN adduser $RSTUDIO_USER sudo
 
