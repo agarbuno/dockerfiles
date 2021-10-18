@@ -1,4 +1,4 @@
-FROM rocker/verse:4.0.2
+FROM rocker/verse:4.1.1
 MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@gmail.com"
 
 # Declaramos al usuario, y las
@@ -9,6 +9,8 @@ RUN adduser $RSTUDIO_USER sudo
 
 # Declaramos ruta de trabajo
 WORKDIR /home/$RSTUDIO_USER/
+RUN touch /home/$RSTUDIO_USER/.Renviron &&\
+    cat "RENV_PATHS_ROOT=~/.renv" >> /home/$RSTUDIO_USER/.Renviron
 
 # Instalamos herramientas: htop (monitoreo) y librerias que necesita R para
 # compilar paquetes
