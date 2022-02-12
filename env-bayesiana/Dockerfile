@@ -17,18 +17,13 @@ RUN apt-get install --no-install-recommends -qq wget ca-certificates make g++
 RUN apt-get update \
     && apt-get install -y libmagick++-dev htop
 
+    # Aseguramos que podemos trabajar desde ~/rstudio/home
 RUN mkdir /home/$RSTUDIO_USER/$TARGET_DIR \
     && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/
 
 VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 
 RUN chmod -R 775 /home/$RSTUDIO_USER/$TARGET_DIR \
-    && chmod -R g+s /home/$RSTUDIO_USER/$TARGET_DIR \
-    && mkdir -p /home/$RSTUDIO_USER/.local/share/renv/ \
-    && mkdir -p /home/$RSTUDIO_USER/.local/share/renv/source \
-    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/source \
-    && chmod -R 775 /home/$RSTUDIO_USER/.local/share/renv/source \
-    && touch /home/$RSTUDIO_USER/.local/share/renv/projects \
-    && chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/.local/share/renv/projects
+    && chmod -R g+s /home/$RSTUDIO_USER/$TARGET_DIR
 
 CMD ["/init"]
