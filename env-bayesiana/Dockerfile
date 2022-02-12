@@ -1,9 +1,9 @@
-FROM rocker/verse:4.0.2
+FROM rocker/verse:4.1.1
 MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@itam.mx"
 
 # Declaramos al usuario, y las
 ENV RSTUDIO_USER rstudio
-ENV TARGET_DIR cursos
+ENV TARGET_DIR documentos
 
 RUN adduser $RSTUDIO_USER sudo
 
