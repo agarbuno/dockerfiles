@@ -12,6 +12,8 @@ WORKDIR /home/$RSTUDIO_USER/
 
 # Instalamos herramientas: htop (monitoreo) y librerias que necesita R para
 # compilar paquetes
+RUN apt-get install --no-install-recommends -qq wget ca-certificates make g++
+
 RUN apt-get update \
     && apt-get install -y libmagick++-dev htop
 
